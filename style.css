@@ -1,74 +1,220 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-      margin: 0;
-    }
-    img{
-        width: 60%;
-        height: 100px;
-    }
-   
-    .myclass{
-        display:inline-flex;
-        width:100%;
-        height: 50px;
-    }
-    nav {
-      /* padding: 0; */
-      background-color: black;
-    }
-    
-    nav ul {
-      list-style: none;
-      margin: 0;
-      /* padding-top: 10px; */
-      padding-bottom: 10px;
-      display: flex;
-      justify-content: center;
-    }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #111;
+  background-color: #f5f7f9;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      display: block;
-    }
+img,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
-    nav ul li a:hover {
-      background-color: red;
-      border-radius: 6px;
-    }
+.myclass {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+}
 
-    nav ul li ul {
-      position: absolute;
-      background: black;
-      display: none;
-      border-radius: 6px;
-    }
+.myclass img {
+  max-height: 110px;
+  width: auto;
+  object-fit: contain;
+}
 
-    nav ul li ul li a {
-      padding-left:10px;
-      padding-right: 80px;
-    }
+nav {
+  background-color: #111;
+  padding: 10px 10px 6px;
+}
 
-    nav ul li:hover ul {
-      display: block;
-    }
-    .card{
-        background-color: lightseagreen;
-        width: 468px;
-        margin-left: 20px;
-        border: 1px solid black;
-    }
-    .card1{
-        background-color: lightseagreen;
-        width: 350px;
-        margin-left: 20px;
-        border: 1px solid black;
-    }
-    
-     .cards{
-        display: flex;
-     }
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+nav ul li {
+  position: relative;
+  min-width: 120px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 16px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: red;
+  border-radius: 6px;
+}
+
+nav ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111;
+  display: none;
+  border-radius: 6px;
+  min-width: 160px;
+  z-index: 10;
+}
+
+nav ul li ul li a {
+  padding: 10px 16px;
+}
+
+nav ul li:hover ul,
+nav ul li:focus-within ul {
+  display: block;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card,
+.card1 {
+  background-color: #2e8b8b;
+  width: 100%;
+  border: 1px solid #0f3c3c;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  color: #fff;
+}
+
+.card1 iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 10px;
+}
+
+.card h3,
+.card1 h3 {
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
+}
+
+.card p,
+.card1 p {
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.responsive-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 10px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0.75rem 0;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+section,
+footer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin: 0.25rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+@media (max-width: 1024px) {
+  .cards {
+    padding: 16px;
+  }
+
+  .myclass img {
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  nav ul li ul {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  nav ul li:hover ul {
+    display: none;
+  }
+
+  nav ul li:focus-within ul {
+    display: block;
+  }
+
+  nav ul li a {
+    padding: 10px 14px;
+  }
+
+  .cards {
+    gap: 15px;
+    padding: 14px;
+  }
+
+  .card,
+  .card1 {
+    padding: 14px;
+  }
+
+  section,
+  footer {
+    padding: 16px;
+  }
+}
      
